@@ -46,7 +46,7 @@ namespace CommunicationModule
             //    // ignore self-signed ssl
             //    //options.BackchannelHttpHandler = new HttpClientHandler { ServerCertificateCustomValidationCallback = delegate { return true; } };
             //});
-            services.AddCors();
+            services.AddCors(); 
 
             services.AddDbContextPool<CommunicationModuleDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CommunicationModuleConn")));
             services.AddControllers();

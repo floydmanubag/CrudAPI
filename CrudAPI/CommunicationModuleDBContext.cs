@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using CrudAPI;
+using CrudAPI.Models;
 
 namespace CommunicationModule
 {
@@ -7,8 +8,14 @@ namespace CommunicationModule
     {
         public CommunicationModuleDBContext(DbContextOptions<CommunicationModuleDBContext> options) : base(options)
         {
+
         }
 
-        public DbSet<> People { get; set; }
+        public DbSet <Address> AddressModel { get; set; }
+        public DbSet <People> PeopleModel { get; set; }
+        public DbSet <Role> RoleModel { get; set; }
+        public DbSet <Warehouse> WarehouseModel { get; set;}
+        public DbSet <WarehousePeople> WarehousePeopleModel { get;set; }
+
     }
 }
