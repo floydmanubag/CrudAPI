@@ -2,11 +2,11 @@
 using CrudAPI;
 using CrudAPI.Models;
 
-namespace CommunicationModule
-{
-    public class CommunicationModuleDBContext : DbContext
+namespace DBDataContext
+{ 
+    public class DataContext : DbContext
     {
-        public CommunicationModuleDBContext(DbContextOptions<CommunicationModuleDBContext> options) : base(options)
+        public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
 
         }

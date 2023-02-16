@@ -9,6 +9,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using DBDataContext;
+using CrudAPI.Interfaces;
+using CrudAPI.Repository;
 
 namespace CommunicationModule
 {
@@ -46,13 +49,13 @@ namespace CommunicationModule
             //    // ignore self-signed ssl
             //    //options.BackchannelHttpHandler = new HttpClientHandler { ServerCertificateCustomValidationCallback = delegate { return true; } };
             //});
-            services.AddCors(); 
-
-            services.AddDbContextPool<CommunicationModuleDBContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CommunicationModuleConn")));
+            services.AddCors();
+            services.AddScoped<IRepository, Repository>(); 
+            services.AddDbContextPool<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CommunicationModuleConn")));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "CommunicationModule", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Warehouse", Version = "v1" });
             });
             //services.AddControllers().AddNewtonsoftJson();
 
