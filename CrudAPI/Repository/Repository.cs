@@ -9,22 +9,38 @@ namespace CrudAPI.Repository
     public class Repository : IRepository //logic
     {
         private readonly DataContext _context;
-        
-        //public List <RoleDTO> ToRoleDTO()
-        //{
-        //    var l = new List<RoleDTO>();
-        //    var p = _context.RoleModel.ToList();
 
-        //    foreach (var role in p)
-        //    {
-        //        var roledto = new RoleDTO();
-        //        roledto.Id = role.RoleID;
-        //        roledto.Name = role.RoleName;
-        //        roledto.Code = role.RoleCode;
-        //        l.Add(roledto);
-        //    }
-        //    return l;
-        //}
+        public List<RoleDTO> ToRoleDTO()
+        {
+            var x = new List<RoleDTO>();
+            var y = _context.RoleTable.ToList();
+
+            foreach (var role in y)
+            {
+                var roledto = new RoleDTO();
+                roledto.Id = role.RoleID;
+                roledto.Name = role.RoleName;
+                roledto.Code = role.RoleCode;
+                x.Add(roledto);
+            }
+            return x;
+        }
+
+        public List<AddressDTO> ToAddressDTO() 
+        {
+            var x = new List<AddressDTO>();
+            var y = _context.AddressTable.ToList();
+
+            foreach (var a in y)
+            {
+                var addressdto = new AddressDTO();
+                addressdto.ID = a.AddressID;
+                addressdto.Street = a.Street;
+                addressdto.City = a.City;
+                x.Add(roledto);
+            }
+            return x;
+        }
 
         #region
         public RoleTable GetRoleCode(string code)
@@ -42,7 +58,7 @@ namespace CrudAPI.Repository
             return _context.RoleTable.Where(r => r.RoleName == name).FirstOrDefault();
         }
 
-        public ICollection <RoleTable> GetRoles()
+        public ICollection<RoleTable> GetRoles()
         {
             return _context.RoleTable.OrderBy(p=>p.RoleID).ToList();
         }
