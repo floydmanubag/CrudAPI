@@ -5,6 +5,7 @@ namespace CrudAPI.Interfaces
     public interface IRepository
     {
         ICollection <RoleTable> GetRoles();
+        RoleTable GetRoleID (Guid id);
         RoleTable GetRoleName (string name);
         RoleTable GetRoleCode (string code);
 
@@ -15,6 +16,7 @@ namespace CrudAPI.Interfaces
         AddressTable GetState (string state);
         AddressTable GetPostalCode (string postalCode);
         AddressTable GetCountry (string country);
+
 
     }
 }
