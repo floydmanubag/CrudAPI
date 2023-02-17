@@ -11,11 +11,14 @@ namespace DBDataContext
 
         }
 
-        public DbSet <Address> AddressModel { get; set; }
-        public DbSet <People> PeopleModel { get; set; }
-        public DbSet <Role> RoleModel { get; set; }
-        public DbSet <Warehouse> WarehouseModel { get; set;}
-        public DbSet <WarehousePeople> WarehousePeopleModel { get;set; }
+        public DbSet <AddressTable> AddressModel { get; set; }
+        public DbSet <PeopleTable> PeopleModel { get; set; }
+        public DbSet <RoleTable> RoleTable { get; set; }
+
+        public DbSet <WarehouseTable> WarehouseModel { get; set;}
+        public DbSet <WarehousePeopleTable> WarehousePeopleModel { get;set; }
+
+
 
     }
 }

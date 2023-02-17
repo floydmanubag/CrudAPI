@@ -1,8 +1,12 @@
-﻿namespace CrudAPI.Models
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
+
+namespace CrudAPI.Models
 {
-    public class Address
+    public class AddressTable
     {
-        public string AddressID { get; set; }
+        [Key]
+        public Guid AddressID { get; set; }
         public string Street { get; set; }
         public string City { get; set; }
         public string State { get; set; }

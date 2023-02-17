@@ -51,11 +51,11 @@ namespace CommunicationModule
             //});
             services.AddCors();
             services.AddScoped<IRepository, Repository>(); 
-            services.AddDbContextPool<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("CommunicationModuleConn")));
+            services.AddDbContextPool<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Warehouse", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Project", Version = "v1" });
             });
             //services.AddControllers().AddNewtonsoftJson();
 
